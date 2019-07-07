@@ -1,0 +1,18 @@
+Package: rewlr
+Type: Package
+Title: Rare Event Weighted Logistics Regression
+Version: 0.0.9001
+Author: Ahmad Zaenal [aut]
+Maintainer: Ahmad Zaenal <ahmadzaenal125@gmail.com>
+Description: Regression logistics for unbalance data
+URL: https://github.com/zaenalium/rewlr/
+License: GPL (>= 2)
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 6.1.1
+LinkingTo: 
+    Rcpp,
+    RcppArmadillo
+Imports: 
+    Rcpp, pROC
+
