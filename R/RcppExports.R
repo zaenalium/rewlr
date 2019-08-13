@@ -5,3 +5,7 @@ cg_cpp <- function(A, b, B) {
     .Call(`_rewlr_cg_cpp`, A, b, B)
 }
 
+mmult <- function(m1, m2) {
+    .Call(`_rewlr_mmult`, m1, m2)
+}
+

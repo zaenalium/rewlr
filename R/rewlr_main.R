@@ -1,18 +1,18 @@
-data <- iris[1:70, ]
-data$Species <- ifelse(data$Species == "setosa",0,1)
+#data <- readr::read_delim("/home/zaenal/Documents/UN OLAH ok.csv", delim = ";")
+#data$Species <- ifelse(data$Species == "setosa",0,1)
 
-formula <- "Species ~ ."
-weights0 =NULL
-weights1 = NULL
-na.action = NULL
+#formula <- "y ~ ."
+#weights0 =NULL
+#weights1 = NULL
+#na.action = NULL
 
-iter <- 1000
-tol <- 0.00001
-e1 <- 0.005
-iter1 <- 200
-w0 <- 0.02/0.01
-w1 <- (1-0.02)/(1-0.01)
-lambda <- NULL
+#iter <- 1000
+#tol <- 0.00001
+#e1 <- 0.005
+#iter1 <- 200
+#w0 <- 0.02/0.01
+#w1 <- (1-0.02)/(1-0.01)
+#lambda <- NULL
 
 
 rewlr <- function(formula, data, weights0,

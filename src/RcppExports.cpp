@@ -19,9 +19,22 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
+// mmult
+NumericMatrix mmult(const NumericMatrix& m1, const NumericMatrix& m2);
+RcppExport SEXP _rewlr_mmult(SEXP m1SEXP, SEXP m2SEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< const NumericMatrix& >::type m1(m1SEXP);
+    Rcpp::traits::input_parameter< const NumericMatrix& >::type m2(m2SEXP);
+    rcpp_result_gen = Rcpp::wrap(mmult(m1, m2));
+    return rcpp_result_gen;
+END_RCPP
+}
 
 static const R_CallMethodDef CallEntries[] = {
     {"_rewlr_cg_cpp", (DL_FUNC) &_rewlr_cg_cpp, 3},
+    {"_rewlr_mmult", (DL_FUNC) &_rewlr_mmult, 2},
     {NULL, NULL, 0}
 };
 
