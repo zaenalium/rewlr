@@ -33,7 +33,7 @@ summary.rewlr <- function(model, digits = max(3L, getOption("digits") - 3L), ...
     dimnames(coef.table) <- list(rownames(model$B), c(dn,
                                                   "Wald", "Pr(>|z|)"))
     cat("\nCoefficients: \n")
-    print(coef.table)
+    printCoefmat(coef.table, digits = digits)
 
     cat("\nDegrees of Freedom:", model$df_null, "Total (i.e. Null); ",
         model$df_res, "Residual\n")

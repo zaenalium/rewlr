@@ -84,7 +84,7 @@ rewlr_fit <- function (y ,x, lambda, w0, w1, iter, tol) {
   result$df_null <- n - 1
   result$df_res <- n - (pq - 1)
   result$PseudoR2 <- 1 - (sum(ll_temp)  / LogLNULL)
-  result$auc <- as.numeric(roc(y, result$fitted)$auc)
+  result$auc <- as.numeric(pROC::roc(c(y), c(result$fitted))$auc)
   return(result)
   }
 

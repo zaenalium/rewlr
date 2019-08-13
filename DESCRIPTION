@@ -13,6 +13,7 @@ RoxygenNote: 6.1.1
 LinkingTo: 
     Rcpp,
     RcppArmadillo
+Depends: pROC
 Imports: 
-    Rcpp, pROC
+    Rcpp
 
