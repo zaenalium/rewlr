@@ -31,7 +31,7 @@
 #'
 #' fit <- rewlr(y~., data = National_exam_id, weights0 = weight0, weights1 = weight1)
 #' summary(fit)
-#' p <- predict(fit, newdata = iris[c(1:22,61) , ])
+#' p <- predict(fit, newdata = National_exam_id)
 #' @export rewlr
 rewlr <- function(formula, data, weights0,
                   weights1, tol = 0.0001, iter = 1000, lambda = NULL) {

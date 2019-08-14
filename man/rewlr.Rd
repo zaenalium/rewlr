@@ -40,16 +40,16 @@ rewlr is used to fitting the Rare Event Weighted Logistic Regression to handle t
 }
 \examples{
 library(rewlr)
-data <- iris[1:55, ]
-data$Species <- ifelse(data$Species == "setosa",0,1)
+data(National_exam_id)
+#data$Species <- ifelse(data$Species == "setosa",0,1)
 #Supposed that current sample data has 9 percent of rare event data, and the population has 2 percent of those rare event data.
 (weight0 = (1 - 0.09)/(1-0.02))
 (weight1 = (0.09)/(0.02))
 iter = 1000; tol = 0.00001
 
-fit <- rewlr(Species~., data = data, weights0 = weight0, weights1 = weight1)
+fit <- rewlr(y~., data = National_exam_id, weights0 = weight0, weights1 = weight1)
 summary(fit)
-p <- predict(fit, newdata = iris[c(1:22,61) , ])
+p <- predict(fit, newdata = National_exam_id)
 }
 \references{
 Maalouf M, Siddiqi M. (2014) emph{Weight logistic regression for large-scale imbalanced and rare events data}. emph{Knowledge-Based System}, strong{59}, 142-148.
