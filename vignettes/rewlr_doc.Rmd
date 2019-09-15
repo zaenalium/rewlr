@@ -1,0 +1,64 @@
+---
+title: "Introduction to Rare Event Weighted Logistics Regression"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Introduction to Rare Event Weighted Logistics Regression}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+
+## Load data & package 
+
+```{r setup}
+library(rewlr)
+
+data("National_exam_id")
+
+
+```
+
+
+## Pembagian training dan testing
+
+Pembagian testing dan training menggunakan metode stratified sampling dan based choiced sampling
+
+Berikut adalah pembagian testing dan training berdasarkan stratified sampling
+
+```{r}
+s <- sample(1:nrow(National_exam_id), nrow(National_exam_id) * 0.5)
+
+    
+train <- National_exam_id[s, ]
+test <- National_exam_id[-s, ]
+
+```
+## Pemodelan menggunakan rewlr
+
+```{r}
+
+#tau <- sum(National_exam_id$y == 1)/length(National_exam_id$y)
+#y_bar <- sum(train$y == 1)/length(train$y)
+
+#tau <- 0.13
+#y_bar <- 0.1
+#(weight0 = (1 - tau)/(1-y_bar))
+#(weight1 = (tau)/(y_bar))
+#iter = 1000; tol = 0.00001
+
+#fit <- rewlr(y~., data = train, weights0 = weight0, weights1 = weight1,
+#             tol = 1e-06, iter = 1000, lambda = 1)
+#summary(fit)
+#pred_train <- predict(fit)
+
+
+#tb <- table(predict = ifelse(pred_train < 0.5, 0, 1), actual = train$y)
+#tb
+```

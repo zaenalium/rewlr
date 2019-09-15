@@ -15,4 +15,7 @@ LinkingTo:
     RcppArmadillo
 Imports: 
     Rcpp, pROC
-
+Suggests: 
+    knitr,
+    rmarkdown
+VignetteBuilder: knitr

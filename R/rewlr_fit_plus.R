@@ -19,7 +19,7 @@ rewlr_fit <- function (y ,x, lambda, w0, w1, iter, tol) {
                        ifelse(is.infinite(z_part) & z_part < 0, -99999,  z_part)))
       z[i] <- x[i, ] %*% B + z_part
     }
-    D <- c(w * p)
+    D <- c(w * v)
     #Q <- x %*% solve(t(x) %*% D %*% x +  lambda * diag(pq)) %*% t(x)
     txD <- sapply(1:nrow(x), function(z) x[z, ] * D[z])
     Q1 <- solve(mmult(txD, x) +  lambda * diag(pq))
