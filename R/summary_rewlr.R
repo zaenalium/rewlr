@@ -29,8 +29,8 @@
 summary.rewlr <- function(model, digits = max(3L, getOption("digits") - 3L), ...) {
   dn <- c("Estimate", "Std. Error")
     pvalue <- 2 * pnorm(-abs(model$wald))
-    coef.table <- cbind(model$B, model$std_error, model$wald, pvalue)
-    dimnames(coef.table) <- list(rownames(model$B), c(dn,
+    coef.table <- cbind(model$B, model$std_error,exp(model$B), model$wald, pvalue)
+    dimnames(coef.table) <- list(rownames(model$B), c(dn, "OddRatio",
                                                   "Wald", "Pr(>|z|)"))
     cat("\nCoefficients: \n")
     printCoefmat(coef.table, digits = digits)
@@ -43,7 +43,7 @@ summary.rewlr <- function(model, digits = max(3L, getOption("digits") - 3L), ...
                                              digits)), "\nResidual Deviance:", format(signif(model$res_dev,
                                                                                              digits)), "\tAIC:", format(signif(model$aic, digits)))
     cat("\n")
-    cat("Area under the curve:\t", format(signif(model$auc,digits)),
+    cat(#"Area under the curve:\t", format(signif(model$auc,digits)),
       "\tMcFadden R2 :\t   ", format(signif(model$PseudoR2,digits)),
         "\nOveral Wald Test:", format(signif(model$wald_all,digits)),
         "\tp-value = ", format(signif(2 * pchisq(-abs(model$wald_all), nrow(coef.table)), 3 )))
